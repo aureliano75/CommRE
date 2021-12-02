@@ -1,22 +1,49 @@
 import React, { useState } from "react";
 //Material UI
-import { Button, Grid, Typography } from "@mui/material";
+import {
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+} from "@mui/material";
 
-export default class Table extends React.Component {
+export default class DataTable extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.state;
+  }
+  //Render all rows from parsedData
+  rowsRender() {
+    const rows = [];
+    for (const [key, value] of Object.entries(this.props.state.parsedData)) {
+      rows.push(this.rowRender(key, value.total));
+    }
+    return rows;
+  }
+  //Single row render
+  rowRender(key, value) {
+    return (
+      <TableRow key={key}>
+        <TableCell align="left" onClick={() => this.props.updateAgent(key)}>
+          {key}
+        </TableCell>
+        <TableCell align="left">{value}</TableCell>
+      </TableRow>
+    );
   }
   render() {
-    //Destructuring Props
-
-    console.log("pr", this.props);
+    console.log("ta", this.props);
     return (
       <div>
-        <Button onClick={() => this.props.updateAgent("testinnng")}>
-          Click
-        </Button>
-        {this.props.test}
+        <Table sx={{ minWidth: 300 }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell align="left">Agent</TableCell>
+              <TableCell align="left">Sales</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>{this.rowsRender()}</TableBody>
+        </Table>
       </div>
     );
   }
