@@ -28,7 +28,12 @@ export default class Dashboard extends React.Component {
     });
     myPromise.then(() => {
       this.fetchSales()
-        .then((res) => this.setState({ agents: res.agents }))
+        .then((res) =>
+          this.setState({
+            agents: res.agents,
+            agent: Object.keys(res.agents)[0],
+          })
+        )
         .catch((err) => console.log(err));
     });
   }
