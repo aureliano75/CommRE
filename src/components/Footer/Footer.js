@@ -1,10 +1,6 @@
 import React from "react";
-import './Footer.css'
+import "./Footer.css";
 
-export default function Footer(){
-    return(
-       <div className='footer'>
-           Created by Jinhua Cui
-       </div>
-    )
+export default function Footer() {
+  return <div className="footer">Created by Jinhua Cui</div>;
 }

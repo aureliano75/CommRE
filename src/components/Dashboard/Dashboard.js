@@ -6,7 +6,7 @@ import Chart from "../Chart/Chart";
 import Table from "../Table/Table";
 import Footer from "../Footer/Footer";
 //css
-import './Dashboard.css'
+import "./Dashboard.css";
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -49,7 +49,7 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-      <Container className='dashWrapper' >
+      <Container className="dashWrapper">
         <Typography variant="h4">Data Analysis for CommRE</Typography>
         <Box
           style={{ backgroundColor: "black", color: "white", padding: "5px" }}
@@ -68,7 +68,6 @@ export default class Dashboard extends React.Component {
         </Grid>
         <Footer />
       </Container>
-      
     );
   }
 }
