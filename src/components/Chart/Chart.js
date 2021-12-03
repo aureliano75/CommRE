@@ -25,10 +25,10 @@ export default class googleChart extends React.Component {
       <div>
         {this.props.state.agents[this.props.state.agent] && (
           <Chart
+            style={{width:"100%"}}
             chartType="PieChart"
             loader={<div>Loading Chart</div>}
             data={this.parseDataforChart()}
-            rootProps={{ "data-testid": "1" }}
           />
         )}
       </div>

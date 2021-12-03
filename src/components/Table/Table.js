@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 //Material UI
 import {
   Table,
@@ -6,19 +6,19 @@ import {
   TableBody,
   TableRow,
   TableCell,
-} from "@mui/material";
+} from "@mui/material"
 
 export default class DataTable extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
   }
-  //Render all rows from parsedData
+  //Render all rows from salesData
   rowsRender() {
-    const rows = [];
-    for (const [key, value] of Object.entries(this.props.state.parsedData)) {
-      rows.push(this.rowRender(key, value.total));
+    const rows = []
+    for (const [key, value] of Object.entries(this.props.state.agents)) {
+      rows.push(this.rowRender(key, value.total))
     }
-    return rows;
+    return rows
   }
   //Single row render
   rowRender(key, value) {
@@ -29,13 +29,12 @@ export default class DataTable extends React.Component {
         </TableCell>
         <TableCell align="left">{value}</TableCell>
       </TableRow>
-    );
+    )
   }
   render() {
-    console.log("ta", this.props);
     return (
       <div>
-        <Table sx={{ minWidth: 300 }} aria-label="simple table">
+        <Table aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell align="left">Agent</TableCell>
@@ -45,6 +44,6 @@ export default class DataTable extends React.Component {
           <TableBody>{this.rowsRender()}</TableBody>
         </Table>
       </div>
-    );
+    )
   }
 }
