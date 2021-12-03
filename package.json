@@ -9,6 +9,10 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "csv-parse": "^5.0.3",
+    "csv-parser": "^3.0.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
     "mongodb": "^4.2.1",
     "nodemon": "^2.0.15",
     "pg": "^8.7.1",
@@ -18,6 +22,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
+  "proxy": "http://localhost:8080",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
