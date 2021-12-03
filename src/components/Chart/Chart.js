@@ -2,13 +2,36 @@ import React from "react";
 //Material UI
 import { Grid, Typography } from "@mui/material";
 
-
-export default class Chart extends React.Component {
+import Chart from "react-google-charts";
+export default class googleChart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  parseDataforChart() {
+    const rows = [];
+    for (const [key, value] of Object.entries(
+      this.props.state.agents[this.props.state.agent]
+    )) {
+      if (key == "total") {
+        rows.push(["Property Type", "Property Sales"]);
+      } else {
+        rows.push([key, value]);
+      }
+    }
+    return rows;
+  }
   render() {
-    //Destructuring Props
-    const { test } = this.props;
     return (
-      <div>{test}</div>
+      <div>
+        {this.props.state.agents[this.props.state.agent] && (
+          <Chart
+            chartType="PieChart"
+            loader={<div>Loading Chart</div>}
+            data={this.parseDataforChart()}
+            rootProps={{ "data-testid": "1" }}
+          />
+        )}
+      </div>
     );
   }
 }
